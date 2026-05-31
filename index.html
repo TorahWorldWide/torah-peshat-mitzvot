@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>שלוש שכבות סיני — מי אמר כל מצווה?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="sky"></canvas>
+
+<header id="topbar">
+  <div class="title-wrap">
+    <h1>שלוש שכבות סיני</h1>
+    <p class="sub">גרסת הפשט — כל מצווה כפי שהיא בפסוק. גרור כדי לטייל</p>
+  </div>
+  <button id="aboutBtn" aria-label="אודות">?</button>
+</header>
+
+<nav id="layers">
+  <button class="layer-btn active" data-layer="all"><span class="lbl">הכל</span><span class="cnt" id="c-all">0</span></button>
+  <button class="layer-btn" data-layer="A"><span class="dot" style="background:var(--A)"></span><span class="lbl">מפי אלוהים</span><span class="cnt" id="c-A">0</span></button>
+  <button class="layer-btn" data-layer="B"><span class="dot" style="background:var(--B)"></span><span class="lbl">מפי משה</span><span class="cnt" id="c-B">0</span></button>
+  <button class="layer-btn" data-layer="C"><span class="dot" style="background:var(--C)"></span><span class="lbl">קול המספר</span><span class="cnt" id="c-C">0</span></button>
+  <button class="layer-btn" data-layer="D"><span class="dot" style="background:var(--D)"></span><span class="lbl">דברים</span><span class="cnt" id="c-D">0</span></button>
+</nav>
+
+<div id="hint">גרור כוכב להזיז • גרור רקע לטייל • גלגל / צביטה לזום • הקש לפרטים</div>
+
+<div id="zoomctl">
+  <button id="zin" aria-label="זום פנימה">+</button>
+  <button id="zout" aria-label="זום החוצה">−</button>
+  <button id="zfit" aria-label="התאם">⤢</button>
+</div>
+
+<!-- detail -->
+<div id="overlay"></div>
+<aside id="detail">
+  <button id="closeDetail" aria-label="סגור">×</button>
+  <div id="detailFrame" class="detail-frame"></div>
+  <h2 id="detailHe"></h2>
+  <blockquote id="detailQuote" class="detail-quote"></blockquote>
+  <div class="detail-rows">
+    <div class="drow"><span class="dk">מקור</span><span class="dv" id="detailSrc"></span></div>
+    <div class="drow"><span class="dk">סוג</span><span class="dv" id="detailType"></span></div>
+    <div class="drow"><span class="dk">קביעוּת</span><span class="dv" id="detailPerm"></span></div>
+    <div class="drow"><span class="dk">תחום</span><span class="dv" id="detailCat"></span></div>
+  </div>
+  <p id="detailNote" class="detail-note"></p>
+</aside>
+
+<!-- about -->
+<aside id="about">
+  <button id="closeAbout" aria-label="סגור">×</button>
+  <h2>שלוש שכבות סיני</h2>
+  <p>גרסה זו בנויה <b>מהטקסט עצמו</b>, לא מרשימת הרמב"ן: כל כוכב הוא מצווה כפי שהיא מופיעה בפסוק, והכותרת מתארת את אותו פסוק. הכוכבים מחוברים לפי ספר. גרור כדי לטייל, צבוט/גלגל כדי לזום.</p>
+  <ul class="about-legend">
+    <li><span class="dot" style="background:var(--A)"></span><b>מפי אלוהים</b> — דיבור אלוהי ישיר לתוכן המצווה.</li>
+    <li><span class="dot" style="background:var(--B)"></span><b>מפי משה</b> — משה אומר לעם "אֵלֶּה הַדְּבָרִים", בלי מסגרת אלוהית ישירה.</li>
+    <li><span class="dot" style="background:var(--C)"></span><b>קול המספר</b> — הלכה מהערת נרטיב (גיד הנשה, נשיאת הארון).</li>
+    <li><span class="dot" style="background:var(--D)"></span><b>דברים</b> — נאום משה. <b>הזוהרים</b> = קיימים רק כאן, ללא מקבילה בשמות־במדבר.</li>
+  </ul>
+  <p class="about-finding">השאלה שהתחילה הכל: איסור הבערת האש בשבת (שמות לה:ג) נאמר רק בפי משה — לא בקול אלוהי ישיר. התצפית מדויקת, אך לאש יש משפחה: נדרים, תפילין, הקהל, גיד הנשה, ו~46 מצוות שקיימות רק בספר דברים. אלה הכוכבים הזוהרים במפה.</p>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
